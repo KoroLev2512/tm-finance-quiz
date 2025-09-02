@@ -32,8 +32,7 @@ body {
 
 .header-content {
     max-width: 90rem;
-  margin: 0 auto;
-    padding: 0 8.75rem;
+    margin: 0 auto;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -808,10 +807,6 @@ body {
 
 /* Responsive design */
 @media (max-width: 75rem) {
-    .header-content {
-        padding: 0 5rem;
-    }
-
     .hero-section {
         padding: 2.5rem 5rem;
     }
@@ -1775,10 +1770,6 @@ body {
     }
 
     /* Header adjustments */
-    .header-content {
-        padding: 0 3.75rem;
-    }
-
     .header-logo {
         width: 8.5rem;
         height: 1.1875rem;

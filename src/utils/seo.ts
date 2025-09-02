@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface SEOConfig {
   title: string;
   description: string;
