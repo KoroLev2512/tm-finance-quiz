@@ -1,6 +1,7 @@
 import './App.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {CloseIcon, LogoIcon, ArrowIcon, ArrowBackIcon, SecureIcon, BurgerIcon} from "./shared/icons";
+import { updateSEO, SEO_CONFIGS } from './utils/seo';
 
 function App() {
   const [selectedGender, setSelectedGender] = useState<string | null>(null)
@@ -56,6 +57,29 @@ function App() {
   const handleContactContinue = () => {
     setCurrentStep('success');
   };
+
+  // Update SEO based on current step
+  useEffect(() => {
+    switch (currentStep) {
+      case 'gender':
+        updateSEO(SEO_CONFIGS.home);
+        break;
+      case 'quiz':
+        updateSEO(SEO_CONFIGS.quiz);
+        break;
+      case 'results':
+        updateSEO(SEO_CONFIGS.results);
+        break;
+      case 'contact':
+        updateSEO(SEO_CONFIGS.contact);
+        break;
+      case 'success':
+        updateSEO(SEO_CONFIGS.success);
+        break;
+      default:
+        updateSEO(SEO_CONFIGS.home);
+    }
+  }, [currentStep]);
 
   type TextQuestion = {
     question: string;
