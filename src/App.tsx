@@ -1,7 +1,9 @@
 import './App.css'
 import { useState, useEffect } from 'react'
-import {CloseIcon, LogoIcon, ArrowIcon, ArrowBackIcon, SecureIcon, BurgerIcon} from "./shared/icons";
+import { CloseIcon, LogoIcon, ArrowIcon, ArrowBackIcon, SecureIcon, BurgerIcon } from "./shared/icons";
 import { updateSEO, SEO_CONFIGS } from './utils/seo';
+import { submitQuizToGoogleForms, getCurrentTimestamp, getUserAgent } from './utils/googleForms';
+import type { QuizAnswer, QuizSubmission } from './utils/googleForms';
 
 function App() {
   const [selectedGender, setSelectedGender] = useState<string | null>(null)
@@ -9,6 +11,9 @@ function App() {
   const [currentStep, setCurrentStep] = useState<'gender' | 'quiz' | 'results' | 'contact' | 'success'>('gender')
   const [currentQuestion, setCurrentQuestion] = useState(1)
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
+  const [quizAnswers, setQuizAnswers] = useState<QuizAnswer[]>([])
+  const [userEmail, setUserEmail] = useState<string>('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleGenderSelect = (gender: string) => {
     setSelectedGender(gender)
@@ -28,6 +33,7 @@ function App() {
       setCurrentStep('gender')
       setCurrentQuestion(1)
       setSelectedAnswer(null)
+      setQuizAnswers([])
     }
   }
 
@@ -37,8 +43,33 @@ function App() {
 
   const handleContinue = () => {
     if (selectedAnswer) {
-      // Here you would save the answer and move to next question
-      console.log(`Question ${currentQuestion}: ${selectedAnswer}`)
+      // Save the answer
+      const currentQuizQuestion = quizQuestions[currentQuestion as keyof typeof quizQuestions]
+      const answerType = currentQuizQuestion?.type === 'card' ? 'card' : 'text'
+      
+      // For card questions, find the full description
+      let answerToSave = selectedAnswer;
+      if (currentQuizQuestion?.type === 'card') {
+        const cardQuestion = currentQuizQuestion as CardQuestion;
+        const selectedOption = cardQuestion.options.find(option => option.name === selectedAnswer);
+        if (selectedOption) {
+          if (selectedOption.description) {
+            answerToSave = `${selectedOption.name} – ${selectedOption.description}`;
+          } else {
+            answerToSave = selectedOption.name;
+          }
+        }
+      }
+      
+      const newAnswer: QuizAnswer = {
+        questionNumber: currentQuestion,
+        question: currentQuizQuestion?.question || '',
+        answer: answerToSave,
+        answerType: answerType
+      }
+      
+      setQuizAnswers(prev => [...prev, newAnswer])
+      console.log(`Question ${currentQuestion}: ${answerToSave}`)
       
       if (currentQuestion === 15) {
         // Move to results screen after question 15
@@ -54,8 +85,50 @@ function App() {
     setCurrentStep('contact');
   };
 
-  const handleContactContinue = () => {
-    setCurrentStep('success');
+  const handleContactContinue = async () => {
+    if (!userEmail.trim()) {
+      alert('Por favor, ingrese su correo electrónico');
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    try {
+      // Prepare submission data
+      const submission: QuizSubmission = {
+        gender: selectedGender || '',
+        email: userEmail,
+        answers: quizAnswers,
+        timestamp: getCurrentTimestamp(),
+        userAgent: getUserAgent()
+      };
+
+      // Submit to Google Forms
+      const success = await submitQuizToGoogleForms(submission);
+      
+      if (success) {
+        setCurrentStep('success');
+      } else {
+        alert('Hubo un error al enviar los datos. Por favor, intente nuevamente.');
+      }
+    } catch (error) {
+      console.error('Error submitting quiz:', error);
+      alert('Hubo un error al enviar los datos. Por favor, intente nuevamente.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // Test function for development
+
+  // Reset to first screen
+  const handleResetQuiz = () => {
+    setCurrentStep('gender');
+    setCurrentQuestion(1);
+    setSelectedAnswer(null);
+    setQuizAnswers([]);
+    setUserEmail('');
+    setSelectedGender(null);
   };
 
   // Update SEO based on current step
@@ -151,17 +224,17 @@ function App() {
       options: [
         {
           name: "Tigre",
-          description: "Ataque rápido, resultado inmediato.",
+          description: "ataque rápido, resultado inmediato.",
           image: "/images/tiger.png"
         },
         {
           name: "Búho",
-          description: "Observo, analizo y actúo.",
+          description: "observo, analizo y actúo.",
           image: "/images/owl.png"
         },
         {
           name: "Tortuga",
-          description: "Despacio pero seguro.",
+          description: "despacio pero seguro.",
           image: "/images/tortoise.png"
         }
       ]
@@ -170,9 +243,9 @@ function App() {
       question: "Imagina que el gráfico del precio sube. ¿Qué piensas?",
       type: "text",
       options: [
-        "¡Entrar de inmediato!",
+        "Entrar de inmediato!",
         "Espero confirmación.",
-        "¿Y si de repente baja?"
+        "Y si de repente baja?"
       ]
     },
     8: {
@@ -190,17 +263,17 @@ function App() {
       options: [
         {
           name: "Líder",
-          description: "Líder – marco la dirección.",
+          description: "marco la dirección.",
           image: "/images/star.png"
         },
         {
           name: "Analista",
-          description: "Analista – propongo las mejores opciones.",
+          description: "propongo las mejores opciones.",
           image: "/images/friends-analyst.png"
         },
         {
           name: "Equilibrador",
-          description: "Equilibrador – suavizo los conflictos.",
+          description: "suavizo los conflictos.",
           image: "/images/friends-balancer.png"
         }
       ]
@@ -229,17 +302,17 @@ function App() {
       options: [
         {
           name: "Fuego",
-          description: "Fuego – energía e impulso.",
+          description: "energía e impulso.",
           image: "/images/element-fire.png"
         },
         {
           name: "Agua",
-          description: "Agua – flexibilidad y movimiento.",
+          description: "flexibilidad y movimiento.",
           image: "/images/element-water.png"
         },
         {
           name: "Tierra",
-          description: "Tierra – estabilidad y solidez.",
+          description: "estabilidad y solidez.",
           image: "/images/element-earth.png"
         }
       ]
@@ -249,18 +322,18 @@ function App() {
       type: "card",
       options: [
         {
-          name: "El tiempo",
-          description: "El tiempo",
+          name: "El tiempo.",
+          description: "",
           image: "/images/value-time.png"
         },
         {
-          name: "El dinero",
-          description: "El dinero",
+          name: "El dinero.",
+          description: "",
           image: "/images/value-money.png"
         },
         {
-          name: "Las oportunidades",
-          description: "Las oportunidades",
+          name: "Las oportunidades.",
+          description: "",
           image: "/images/value-opportunities.png"
         }
       ]
@@ -344,8 +417,8 @@ function App() {
             
             <div className="cards-container">
               <div 
-                className={`card ${selectedGender === 'man' ? 'selected' : ''}`}
-                onClick={() => handleGenderSelect('man')}
+                className={`card ${selectedGender === 'Hombre' ? 'selected' : ''}`}
+                onClick={() => handleGenderSelect('Hombre')}
               >
                 <div className="card-image">
                   <img src="/images/man-card.png" alt="Hombre" />
@@ -357,8 +430,8 @@ function App() {
               </div>
 
               <div 
-                className={`card ${selectedGender === 'woman' ? 'selected' : ''}`}
-                onClick={() => handleGenderSelect('woman')}
+                className={`card ${selectedGender === 'Mujer' ? 'selected' : ''}`}
+                onClick={() => handleGenderSelect('Mujer')}
               >
                 <div className="card-image">
                   <img src="/images/woman-card.png" alt="Mujer" />
@@ -473,6 +546,9 @@ function App() {
                       type="email" 
                       className="email-input" 
                       placeholder="Ingrese su correo electrónico"
+                      value={userEmail}
+                      onChange={(e) => setUserEmail(e.target.value)}
+                      required
                     />
                   </div>
                   
@@ -487,8 +563,12 @@ function App() {
                   </div>
                 </div>
                 
-                <button className="contact-continue-button" onClick={handleContactContinue}>
-                  Continuar
+                <button 
+                  className="contact-continue-button" 
+                  onClick={handleContactContinue}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Enviando...' : 'Continuar'}
                 </button>
               </div>
             </div>
@@ -504,7 +584,7 @@ function App() {
                   </h2>
                 </div>
                 
-                <button className="success-continue-button">
+                <button className="success-continue-button" onClick={handleResetQuiz}>
                   Completar el cuestionario
                 </button>
               </div>

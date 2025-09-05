@@ -32,7 +32,7 @@ body {
 
 .header-content {
     max-width: 90rem;
-    margin: 0 auto;
+  margin: 0 auto;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -310,6 +310,22 @@ body {
 
 .menu-item:hover {
     color: #132A4D;
+}
+
+.test-button {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    border: none;
+    color: white;
+    font-weight: 600;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.test-button:hover {
+    background: linear-gradient(135deg, #ff5252, #ff7979);
+    transform: translateY(-0.125rem);
+    color: white;
 }
 
 /* Quiz Section */
