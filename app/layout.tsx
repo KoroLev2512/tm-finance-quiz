@@ -23,13 +23,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'UM Finance Quiz - Descubre tu mentalidad financiera',
     description: 'Descubre tu mentalidad financiera con nuestro test interactivo de 15 preguntas. Identifica tu perfil financiero en solo 2 minutos.',
-    url: 'https://umfinance-quiz.com/',
+    url: 'https://umfinance.pro/',
     siteName: 'UM Finance Quiz',
     type: 'website',
     locale: 'es_ES',
     images: [
       {
-        url: 'https://umfinance-quiz.com/og-image.jpg',
+        url: 'https://umfinance.pro/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'UM Finance Quiz - Test de Mentalidad Financiera',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'UM Finance Quiz - Descubre tu mentalidad financiera',
     description: 'Descubre tu mentalidad financiera con nuestro test interactivo de 15 preguntas. Identifica tu perfil financiero en solo 2 minutos.',
-    images: ['https://umfinance-quiz.com/og-image.jpg'],
+    images: ['https://umfinance.pro/og-image.jpg'],
   },
   viewport: 'width=device-width, initial-scale=1',
   themeColor: '#000000',
@@ -65,7 +65,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} ${montserrat.variable}`}>
       <head>
-        <link rel="canonical" href="https://umfinance-quiz.com/" />
+        <link rel="canonical" href="https://umfinance.pro/" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
         <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
@@ -83,7 +83,7 @@ export default function RootLayout({
                 "name": "UM Finance"
               },
               "description": "Descubre tu mentalidad financiera con nuestro test interactivo de 15 preguntas",
-              "url": "https://umfinance-quiz.com/",
+              "url": "https://umfinance.pro/",
               "applicationCategory": "FinanceApplication",
               "operatingSystem": "Web Browser",
               "offers": {
