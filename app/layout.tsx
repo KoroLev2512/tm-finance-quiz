@@ -1,5 +1,18 @@
 import type { Metadata } from 'next'
+import { Inter, Montserrat } from 'next/font/google'
 import './globals.css'
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-inter',
+})
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['600', '700'],
+  variable: '--font-montserrat',
+})
 
 export const metadata: Metadata = {
   title: 'UM Finance Quiz - Descubre tu mentalidad financiera | Test de 2 minutos',
@@ -49,11 +62,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es">
+    <html lang="es" className={`${inter.variable} ${montserrat.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet" />
         <link rel="canonical" href="https://umfinance-quiz.com/" />
         <script
           type="application/ld+json"

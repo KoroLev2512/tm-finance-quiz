@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { CloseIcon, LogoIcon, ArrowIcon, ArrowBackIcon, SecureIcon, BurgerIcon } from "../shared/icons";
 import { updateSEO, SEO_CONFIGS } from '../utils/seo';
 import { submitQuizToGoogleForms, getCurrentTimestamp, getUserAgent } from '../utils/googleForms';
@@ -370,21 +371,15 @@ export default function Home() {
               <button className="header-back" onClick={goBack} aria-label="Volver">
                 <ArrowBackIcon />
               </button>
-              <Link href="/" className="header-logo-center">
-                <div className="header-logo">
-                  <LogoIcon/>
-                </div>
-              </Link>
+              <Link href="/" className="header-logo-center"><LogoIcon/></Link>
               <button className="menu-button" onClick={toggleMenu}>
                 <BurgerIcon/>
               </button>
             </>
           ) : (
             <>
-              <Link href="/" className="header-logo-left">
-                <div className="header-logo">
-                  <LogoIcon/>
-                </div>
+              <Link href="/">
+                <LogoIcon/>
               </Link>
               <button className="menu-button" onClick={toggleMenu}>
                 <BurgerIcon/>
@@ -427,7 +422,7 @@ export default function Home() {
                 onClick={() => handleGenderSelect('Hombre')}
               >
                 <div className="card-image">
-                  <img src="/images/man-card.png" alt="Hombre" />
+                  <Image src="/images/man-card.png" alt="Hombre" width={200} height={200} />
                 </div>
                 <div className="card-button">
                   <span>Hombre</span>
@@ -440,7 +435,7 @@ export default function Home() {
                 onClick={() => handleGenderSelect('Mujer')}
               >
                 <div className="card-image">
-                  <img src="/images/woman-card.png" alt="Mujer" />
+                  <Image src="/images/woman-card.png" alt="Mujer" width={200} height={200} />
                 </div>
                 <div className="card-button">
                   <span>Mujer</span>
@@ -479,7 +474,7 @@ export default function Home() {
                       {option.description}
                     </div>
                     <div className="animal-image">
-                      <img src={option.image} alt={option.name} />
+                      <Image src={option.image} alt={option.name} width={200} height={200} />
                     </div>
                     <div className="animal-button">
                       <span>{option.name}</span>
@@ -515,7 +510,7 @@ export default function Home() {
           <div className="results-section">
             {/* Results Image */}
             <div className="results-image">
-              <img src="/images/result-image.png" alt="Resultados del quiz" />
+              <Image src="/images/result-image.png" alt="Resultados del quiz" width={227} height={227} />
             </div>
 
             {/* Results Percentage */}
@@ -591,7 +586,7 @@ export default function Home() {
               <div className="success-content">
                 <div className="success-message">
                   <div className="success-image">
-                    <img src="/images/success-envelope.png" alt="Éxito" />
+                    <Image src="/images/success-envelope.png" alt="Éxito" width={200} height={200} />
                   </div>
                   <h2 className="success-title">
                     ¡Éxito!<br />
