@@ -370,15 +370,21 @@ export default function Home() {
               <button className="header-back" onClick={goBack} aria-label="Volver">
                 <ArrowBackIcon />
               </button>
-              <Link href="/" className="header-logo-center"><LogoIcon/></Link>
+              <Link href="/" className="header-logo-center">
+                <div className="header-logo">
+                  <LogoIcon/>
+                </div>
+              </Link>
               <button className="menu-button" onClick={toggleMenu}>
                 <BurgerIcon/>
               </button>
             </>
           ) : (
             <>
-              <Link href="/">
-                <LogoIcon/>
+              <Link href="/" className="header-logo-left">
+                <div className="header-logo">
+                  <LogoIcon/>
+                </div>
               </Link>
               <button className="menu-button" onClick={toggleMenu}>
                 <BurgerIcon/>
