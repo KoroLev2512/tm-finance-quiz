@@ -213,10 +213,6 @@ body {
     text-align: center;
 }
 
-.card-button svg {
-    fill: #3D568F;
-}
-
 .card:hover .card-button {
     background-color: #d4e68a;
 }
@@ -819,6 +815,16 @@ body {
 
 .contact-continue-button:hover {
     background: #d4e68a;
+}
+
+.contact-continue-button.active {
+    background-color: #3D568F;
+    color: #FFFFFF;
+    border: 0.0625rem solid #3D568F;
+}
+
+.contact-continue-button.active:hover {
+    background-color: #2a4a7a;
 }
 
 /* Success Screen Styles */

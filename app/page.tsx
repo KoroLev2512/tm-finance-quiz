@@ -606,7 +606,7 @@ export default function Home() {
                 </div>
                 
                 <button 
-                  className="contact-continue-button" 
+                  className={`contact-continue-button ${userEmail.trim() ? 'active' : ''}`}
                   onClick={handleContactContinue}
                   disabled={isSubmitting}
                 >
