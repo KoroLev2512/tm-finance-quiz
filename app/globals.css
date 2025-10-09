@@ -267,7 +267,7 @@ body {
 .menu-panel {
     position: absolute;
     top: 0;
-    left: -22.5rem;
+    right: -22.5rem;
     width: 22.5rem;
     height: 100vh;
     background-color: #FFFFFF;
@@ -275,11 +275,11 @@ body {
     padding: 5rem 2.5rem;
     display: flex;
     flex-direction: column;
-    transition: left 0.3s ease;
+    transition: right 0.3s ease;
 }
 
 .dropdown-menu.open .menu-panel {
-    left: 0;
+    right: 0;
 }
 
 .close-button {
