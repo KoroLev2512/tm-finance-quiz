@@ -419,9 +419,8 @@ export default function Home() {
             <CloseIcon/>
           </button>
           <nav className="menu-nav">
-            <a href="#" className="menu-item">Política de Privacidad</a>
-            <a href="#" className="menu-item">Términos de Uso y Servicio</a>
-            <a href="#" className="menu-item">Política de Cookies</a>
+            <Link href="/politica" className="menu-item">Política de Privacidad</Link>
+            <Link href="/cookies" className="menu-item">Política de Cookies</Link>
             <a href="#" className="menu-item">Contacta con Nosotros</a>
           </nav>
         </div>
@@ -467,8 +466,7 @@ export default function Home() {
             </div>
 
             <p className="terms-text">
-              Al hacer clic en &quot;Hombre&quot; o &quot;Mujer&quot;, acepta los Términos de Uso y Servicio, 
-              la Política de Privacidad y la Política de Cookies
+              Al hacer clic en &quot;Hombre&quot; o &quot;Mujer&quot;, acepta la Política de Privacidad y la Política de Cookies
             </p>
           </div>
         ) : currentStep === 'quiz' ? (

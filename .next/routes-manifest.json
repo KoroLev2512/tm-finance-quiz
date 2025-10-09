@@ -54,6 +54,18 @@
       "regex": "^/_not\\-found(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/cookies",
+      "regex": "^/cookies(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/cookies(?:/)?$"
+    },
+    {
+      "page": "/politica",
+      "regex": "^/politica(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/politica(?:/)?$"
     }
   ],
   "dataRoutes": [],
