@@ -2474,6 +2474,18 @@ body {
     flex: 1;
 }
 
+.cookie-banner-link {
+    color: #3D568F;
+    text-decoration: underline;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cookie-banner-link:hover {
+    color: #2a4a7a;
+    text-decoration: underline;
+}
+
 .cookie-banner-buttons {
     display: flex;
     justify-content: center;

@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { CloseIcon, LogoIcon, ArrowBackIcon, BurgerIcon } from "../../shared/icons";
 
 export default function PrivacyPage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(true)
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)

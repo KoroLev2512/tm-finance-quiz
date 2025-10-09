@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 interface CookieBannerProps {
   onAccept?: () => void
@@ -44,7 +45,7 @@ const CookieBanner = ({ onAccept, onReject }: CookieBannerProps) => {
             Al hacer clic en "Aceptar", nos autoriza a almacenar cookies para 
             mejorar la navegación del sitio, el análisis detallado del uso y 
             el material de marketing mejorado. No estar de acuerdo puede 
-            afectar las funcionalidades del sitio. Leer más
+            afectar las funcionalidades del sitio. <Link href="/cookies" className="cookie-banner-link">Leer más</Link>
           </p>
           
           <div className="cookie-banner-buttons">
