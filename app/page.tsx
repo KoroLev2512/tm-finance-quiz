@@ -18,6 +18,22 @@ export default function Home() {
   const [quizAnswers, setQuizAnswers] = useState<QuizAnswer[]>([])
   const [userEmail, setUserEmail] = useState<string>('')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [emailError, setEmailError] = useState<string>('')
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const email = e.target.value
+    setUserEmail(email)
+    
+    // Clear error when user starts typing
+    if (emailError) {
+      setEmailError('')
+    }
+  }
+
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
 
   const handleGenderSelect = (gender: string) => {
     setSelectedGender(gender)
@@ -91,8 +107,13 @@ export default function Home() {
 
   const handleContactContinue = async () => {
     if (!userEmail.trim()) {
-      alert('Por favor, ingrese su correo electrónico');
-      return;
+      setEmailError('Por favor, introduzca su correo electrónico')
+      return
+    }
+    
+    if (!validateEmail(userEmail)) {
+      setEmailError('Por favor, introduzca un correo electrónico válido')
+      return
     }
 
     setIsSubmitting(true);
@@ -560,12 +581,17 @@ export default function Home() {
                   <div className="input-container">
                     <input 
                       type="email" 
-                      className="email-input" 
+                      className={`email-input ${emailError ? 'error' : ''}`}
                       placeholder="Ingrese su correo electrónico"
                       value={userEmail}
-                      onChange={(e) => setUserEmail(e.target.value)}
+                      onChange={handleEmailChange}
                       required
                     />
+                    {emailError && (
+                      <div className="error-message">
+                        {emailError}
+                      </div>
+                    )}
                   </div>
                   
                   <div className="privacy-info">

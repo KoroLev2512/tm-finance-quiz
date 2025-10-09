@@ -746,6 +746,7 @@ body {
     font-size: 0.875rem;
     color: #313131;
     background: #FFFFFF;
+    transition: border-color 0.2s ease;
 }
 
 .email-input::placeholder {
@@ -754,7 +755,20 @@ body {
 
 .email-input:focus {
     outline: none;
-    border-color: #3D568F;
+    border-color: #5653FE;
+}
+
+.email-input.error {
+    border-color: #FF0000;
+}
+
+.error-message {
+    color: #FF0000;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.21;
+    margin-top: 0.25rem;
+    text-align: left;
 }
 
 .privacy-info {
