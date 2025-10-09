@@ -419,7 +419,7 @@ export default function Home() {
             <CloseIcon/>
           </button>
           <nav className="menu-nav">
-            <Link href="/politica" className="menu-item">Política de Privacidad</Link>
+            <Link href="/privacy" className="menu-item">Política de Privacidad</Link>
             <Link href="/cookies" className="menu-item">Política de Cookies</Link>
             <a href="#" className="menu-item">Contacta con Nosotros</a>
           </nav>

@@ -62,10 +62,10 @@
       "namedRegex": "^/cookies(?:/)?$"
     },
     {
-      "page": "/politica",
-      "regex": "^/politica(?:/)?$",
+      "page": "/privacy",
+      "regex": "^/privacy(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/politica(?:/)?$"
+      "namedRegex": "^/privacy(?:/)?$"
     }
   ],
   "dataRoutes": [],
