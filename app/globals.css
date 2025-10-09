@@ -426,12 +426,13 @@ body {
 }
 
 .answer-option.selected {
-    background-color: #EAF3B2;
-    border-color: #EAF3B2;
+    background-color: #E8F0FF;
+    border-color: #3D568F;
+    border-width: 0.125rem;
 }
 
 .answer-option.selected .option-text {
-    color: #3D568F;
+    color: #313131;
 }
 
 .option-text {
@@ -442,6 +443,14 @@ body {
     color: #313131;
     text-align: left;
     flex: 1;
+}
+
+.option-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 /* Continue Button */
