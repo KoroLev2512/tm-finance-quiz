@@ -213,6 +213,10 @@ body {
     text-align: center;
 }
 
+.card-button svg {
+    fill: #3D568F;
+}
+
 .card:hover .card-button {
     background-color: #d4e68a;
 }
