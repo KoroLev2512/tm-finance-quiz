@@ -7,6 +7,7 @@ import { CloseIcon, LogoIcon, ArrowIcon, ArrowBackIcon, SecureIcon, BurgerIcon }
 import { updateSEO, SEO_CONFIGS } from '../utils/seo';
 import { submitQuizToGoogleForms, getCurrentTimestamp, getUserAgent } from '../utils/googleForms';
 import type { QuizAnswer, QuizSubmission } from '../utils/googleForms';
+import CookieBanner from '../shared/components/CookieBanner';
 
 export default function Home() {
   const [selectedGender, setSelectedGender] = useState<string | null>(null)
@@ -602,6 +603,17 @@ export default function Home() {
           </div>
         ) : null}
       </main>
+      
+      <CookieBanner 
+        onAccept={() => {
+          console.log('Cookies accepted')
+          // Здесь можно добавить логику для активации аналитики и других сервисов
+        }}
+        onReject={() => {
+          console.log('Cookies rejected')
+          // Здесь можно добавить логику для отключения аналитики
+        }}
+      />
     </div>
   )
 }
