@@ -233,6 +233,18 @@ body {
     margin-top: 2rem;
 }
 
+.terms-link {
+    color: #3D568F;
+    text-decoration: underline;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.terms-link:hover {
+    color: #2a4a7a;
+    text-decoration: underline;
+}
+
 /* Dropdown Menu */
 .dropdown-menu {
     position: fixed;

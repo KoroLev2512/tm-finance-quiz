@@ -466,7 +466,7 @@ export default function Home() {
             </div>
 
             <p className="terms-text">
-              Al hacer clic en &quot;Hombre&quot; o &quot;Mujer&quot;, acepta la Política de Privacidad y la Política de Cookies
+              Al hacer clic en &quot;Hombre&quot; o &quot;Mujer&quot;, acepta la <Link href="/privacy" className="terms-link">Política de Privacidad</Link> y la <Link href="/cookies" className="terms-link">Política de Cookies</Link>
             </p>
           </div>
         ) : currentStep === 'quiz' ? (
