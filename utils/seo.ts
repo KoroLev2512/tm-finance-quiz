@@ -99,6 +99,13 @@ export const SEO_CONFIGS = {
     url: 'https://umfinance.pro/results',
     image: 'https://umfinance.pro/results-og-image.jpg'
   },
+  result: {
+    title: '97% Probabilidad de Crecimiento Financiero - Resultados | UM Finance Quiz',
+    description: '¡Excelente! Tu probabilidad de crecimiento financiero es del 97%. Descubre cómo tu estilo de equilibrio entre riesgo y lógica es perfecto para el comercio y las opciones binarias.',
+    keywords: 'crecimiento financiero, probabilidad 97%, comercio, opciones binarias, perfil financiero, análisis riesgo',
+    url: 'https://umfinance.pro/result',
+    image: 'https://umfinance.pro/result-og-image.jpg'
+  },
   contact: {
     title: 'Contacto - Recibe tu Reporte Detallado | UM Finance Quiz',
     description: 'Proporciona tu email para recibir un reporte detallado de tu perfil financiero con recomendaciones personalizadas y análisis completo de tu mentalidad financiera.',

@@ -12,7 +12,7 @@ import CookieBanner from '../shared/components/CookieBanner';
 export default function Home() {
   const [selectedGender, setSelectedGender] = useState<string | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [currentStep, setCurrentStep] = useState<'gender' | 'quiz' | 'results' | 'contact' | 'success'>('gender')
+  const [currentStep, setCurrentStep] = useState<'gender' | 'quiz' | 'contact' | 'success'>('gender')
   const [currentQuestion, setCurrentQuestion] = useState(1)
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
   const [quizAnswers, setQuizAnswers] = useState<QuizAnswer[]>([])
@@ -92,8 +92,8 @@ export default function Home() {
       console.log(`Question ${currentQuestion}: ${answerToSave}`)
       
       if (currentQuestion === 15) {
-        // Move to results screen after question 15
-        setCurrentStep('results')
+        // Redirect to result page after question 15
+        window.location.href = '/result'
       } else {
         setCurrentQuestion(currentQuestion + 1)
         setSelectedAnswer(null)
@@ -101,9 +101,6 @@ export default function Home() {
     }
   }
 
-  const handleResultsContinue = () => {
-    setCurrentStep('contact');
-  };
 
   const handleContactContinue = async () => {
     if (!userEmail.trim()) {
@@ -162,9 +159,6 @@ export default function Home() {
         break;
       case 'quiz':
         updateSEO(SEO_CONFIGS.quiz);
-        break;
-      case 'results':
-        updateSEO(SEO_CONFIGS.results);
         break;
       case 'contact':
         updateSEO(SEO_CONFIGS.contact);
@@ -531,39 +525,6 @@ export default function Home() {
               onClick={handleContinue}
               disabled={!selectedAnswer}
             >
-              Continuar
-            </button>
-          </div>
-        ) : currentStep === 'results' ? (
-          <div className="results-section">
-            {/* Results Image */}
-            <div className="results-image">
-              <Image src="/images/result-image.png" alt="Resultados del quiz" width={227} height={227} />
-            </div>
-
-            {/* Results Percentage */}
-            <div className="results-percentage">
-              <p className="results-percentage-label">Probabilidad de su crecimiento financiero:</p>
-              <p className="results-percentage-value">97%</p>
-            </div>
-
-            {/* Results Description */}
-            <div className="results-description">
-              <p>
-                Tus respuestas muestran que tienes cualidades que son perfectas
-                para el crecimiento financiero. Usted es capaz de equilibrar el
-                riesgo y la lógica — esto es lo que se necesita para el comercio y
-                las opciones binarias.
-              </p>
-            </div>
-
-            {/* Results Question */}
-            <h2 className="results-question">
-              ¿Quieres ver cómo es tu estilo trabaja en el mercado?
-            </h2>
-
-            {/* Continue Button */}
-            <button className="results-continue-button" onClick={handleResultsContinue}>
               Continuar
             </button>
           </div>
