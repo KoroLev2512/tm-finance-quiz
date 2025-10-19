@@ -39,7 +39,7 @@ export default function PrivacyPage() {
           <nav className="menu-nav">
             <Link href="/privacy" className="menu-item">Política de Privacidad</Link>
             <Link href="/cookies" className="menu-item">Política de Cookies</Link>
-            <a href="#" className="menu-item">Contacta con Nosotros</a>
+            <Link href="/contact" className="menu-item">Contacta con Nosotros</Link>
           </nav>
         </div>
       </div>
