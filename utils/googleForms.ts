@@ -80,6 +80,7 @@ export const submitQuizToGoogleForms = async (submission: QuizSubmission): Promi
     data[FORM_FIELDS.email] = submission.email;
   }
 
+  // Map all answers to their corresponding form fields
   submission.answers.forEach(answer => {
     const fieldKey = `question${answer.questionNumber}` as keyof typeof FORM_FIELDS;
     const fieldId = FORM_FIELDS[fieldKey];
@@ -142,4 +143,50 @@ export const getCurrentTimestamp = (): string => {
 // Helper function to get user agent
 export const getUserAgent = (): string => {
   return navigator.userAgent;
+};
+
+// Secondary submission: email-only duplication to another destination
+// Supports two configurations (set via env):
+// 1) NEXT_PUBLIC_SECONDARY_FORM_URL + NEXT_PUBLIC_SECONDARY_EMAIL_FIELD_ID (Google Form endpoint)
+// 2) NEXT_PUBLIC_SECONDARY_SHEET_WEBAPP_URL (Apps Script Web App that accepts JSON { email, timestamp })
+export const submitEmailToSecondarySheet = async (email: string): Promise<boolean> => {
+  try {
+    const secondaryFormUrl = process.env.NEXT_PUBLIC_SECONDARY_FORM_URL;
+    const secondaryEmailFieldId = process.env.NEXT_PUBLIC_SECONDARY_EMAIL_FIELD_ID;
+    const secondaryWebAppUrl = process.env.NEXT_PUBLIC_SECONDARY_SHEET_WEBAPP_URL;
+
+    console.log('Secondary submission config:', { 
+      hasFormUrl: !!secondaryFormUrl, 
+      hasFieldId: !!secondaryEmailFieldId, 
+      hasWebAppUrl: !!secondaryWebAppUrl 
+    });
+
+    if (secondaryFormUrl && secondaryEmailFieldId) {
+      const fd = new FormData();
+      fd.append(secondaryEmailFieldId, email);
+      // optional timestamp for audit
+      fd.append('entry.timestamp' in ({} as any) ? 'entry.timestamp' : 'timestamp', new Date().toISOString());
+      await fetch(secondaryFormUrl, { method: 'POST', mode: 'no-cors', body: fd });
+      console.log('Secondary form submission completed');
+      return true;
+    }
+
+    if (secondaryWebAppUrl) {
+      console.log('Submitting to Web App:', secondaryWebAppUrl);
+      await fetch(secondaryWebAppUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, timestamp: new Date().toISOString() }),
+      });
+      console.log('Secondary Web App submission completed');
+      return true;
+    }
+
+    console.warn('Secondary email endpoint not configured. Set NEXT_PUBLIC_SECONDARY_FORM_URL + NEXT_PUBLIC_SECONDARY_EMAIL_FIELD_ID or NEXT_PUBLIC_SECONDARY_SHEET_WEBAPP_URL');
+    return false;
+  } catch (e) {
+    console.warn('Secondary email submission failed:', e);
+    return false;
+  }
 };

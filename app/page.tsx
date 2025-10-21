@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { CloseIcon, LogoIcon, ArrowIcon, ArrowBackIcon, SecureIcon, BurgerIcon } from "../shared/icons";
 import { updateSEO, SEO_CONFIGS } from '../utils/seo';
-import { submitQuizToGoogleForms, getCurrentTimestamp, getUserAgent } from '../utils/googleForms';
+import { submitQuizToGoogleForms, getCurrentTimestamp, getUserAgent, submitEmailToSecondarySheet } from '../utils/googleForms';
 import type { QuizAnswer, QuizSubmission } from '../utils/googleForms';
 import CookieBanner from '../shared/components/CookieBanner';
 
@@ -19,6 +19,61 @@ export default function Home() {
   const [userEmail, setUserEmail] = useState<string>('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [emailError, setEmailError] = useState<string>('')
+
+  // Initialize step from URL (?step=contact)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search)
+      const step = params.get('step')
+      if (step === 'contact') {
+        setCurrentStep('contact')
+      }
+    }
+  }, [])
+
+  // Load saved progress (gender, answers) from localStorage on first mount
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    try {
+      const raw = localStorage.getItem('quizProgress')
+      if (raw) {
+        const parsed = JSON.parse(raw) as { gender?: string; answers?: QuizAnswer[] }
+        if (parsed.gender) {
+          setSelectedGender(parsed.gender)
+        }
+        if (Array.isArray(parsed.answers) && parsed.answers.length > 0) {
+          setQuizAnswers(parsed.answers)
+        }
+      }
+    } catch (e) {
+      console.warn('Failed to load quiz progress', e)
+    }
+  }, [])
+
+  const saveProgress = (next: { gender?: string | null; answers?: QuizAnswer[] }) => {
+    if (typeof window === 'undefined') return
+    try {
+      const current = localStorage.getItem('quizProgress')
+      const base = current ? JSON.parse(current) : {}
+      const updated = {
+        ...base,
+        ...(next.gender !== undefined ? { gender: next.gender } : {}),
+        ...(next.answers !== undefined ? { answers: next.answers } : {}),
+      }
+      localStorage.setItem('quizProgress', JSON.stringify(updated))
+    } catch (e) {
+      console.warn('Failed to save quiz progress', e)
+    }
+  }
+
+  const clearProgress = () => {
+    if (typeof window === 'undefined') return
+    try {
+      localStorage.removeItem('quizProgress')
+    } catch (e) {
+      console.warn('Failed to clear quiz progress', e)
+    }
+  }
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const email = e.target.value
@@ -37,6 +92,7 @@ export default function Home() {
 
   const handleGenderSelect = (gender: string) => {
     setSelectedGender(gender)
+    saveProgress({ gender })
     setCurrentStep('quiz')
   }
 
@@ -59,19 +115,22 @@ export default function Home() {
 
   const handleAnswerSelect = (answer: string) => {
     setSelectedAnswer(answer)
+    // Auto-advance on selection
+    handleContinue(answer)
   }
 
-  const handleContinue = () => {
-    if (selectedAnswer) {
+  const handleContinue = (answerParam?: string) => {
+    const effectiveAnswer = answerParam ?? selectedAnswer
+    if (effectiveAnswer) {
       // Save the answer
       const currentQuizQuestion = quizQuestions[currentQuestion as keyof typeof quizQuestions]
       const answerType = currentQuizQuestion?.type === 'card' ? 'card' : 'text'
       
       // For card questions, find the full description
-      let answerToSave = selectedAnswer;
+      let answerToSave = effectiveAnswer;
       if (currentQuizQuestion?.type === 'card') {
         const cardQuestion = currentQuizQuestion as CardQuestion;
-        const selectedOption = cardQuestion.options.find(option => option.name === selectedAnswer);
+        const selectedOption = cardQuestion.options.find(option => option.name === effectiveAnswer);
         if (selectedOption) {
           if (selectedOption.description) {
             answerToSave = `${selectedOption.name} – ${selectedOption.description}`;
@@ -88,12 +147,20 @@ export default function Home() {
         answerType: answerType
       }
       
-      setQuizAnswers(prev => [...prev, newAnswer])
+      setQuizAnswers(prev => {
+        const nextAnswers = [...prev, newAnswer]
+        saveProgress({ answers: nextAnswers })
+        return nextAnswers
+      })
       console.log(`Question ${currentQuestion}: ${answerToSave}`)
       
       if (currentQuestion === 15) {
         // Redirect to result page after question 15
-        window.location.href = '/result'
+        console.log('Quiz completed! All 15 answers collected:', [...quizAnswers, newAnswer])
+        // Small delay to ensure state is saved
+        setTimeout(() => {
+          window.location.href = '/result'
+        }, 100)
       } else {
         setCurrentQuestion(currentQuestion + 1)
         setSelectedAnswer(null)
@@ -118,17 +185,29 @@ export default function Home() {
     try {
       // Prepare submission data
       const submission: QuizSubmission = {
-        gender: selectedGender || '',
+        gender: selectedGender || (typeof window !== 'undefined' ? (JSON.parse(localStorage.getItem('quizProgress') || '{}')?.gender || '') : ''),
         email: userEmail,
-        answers: quizAnswers,
+        answers: (quizAnswers && quizAnswers.length > 0) ? quizAnswers : (typeof window !== 'undefined' ? (JSON.parse(localStorage.getItem('quizProgress') || '{}')?.answers || []) : []),
         timestamp: getCurrentTimestamp(),
         userAgent: getUserAgent()
       };
 
-      // Submit to Google Forms
-      const success = await submitQuizToGoogleForms(submission);
-      
-      if (success) {
+      console.log('Submitting data:', submission);
+
+      // Submit to primary Google Form first
+      const primarySuccess = await submitQuizToGoogleForms(submission);
+      console.log('Primary form result:', primarySuccess);
+
+      // Then try secondary email submission (don't block on failure)
+      try {
+        const secondarySuccess = await submitEmailToSecondarySheet(userEmail);
+        console.log('Secondary email result:', secondarySuccess);
+      } catch (secondaryError) {
+        console.warn('Secondary email submission failed:', secondaryError);
+      }
+
+      if (primarySuccess) {
+        clearProgress()
         setCurrentStep('success');
       } else {
         alert('Hubo un error al enviar los datos. Por favor, intente nuevamente.');
@@ -436,8 +515,8 @@ export default function Home() {
                 className={`card ${selectedGender === 'Hombre' ? 'selected' : ''}`}
                 onClick={() => handleGenderSelect('Hombre')}
               >
-                <div className="card-image">
-                  <Image src="/images/man-card.png" alt="Hombre" width={200} height={200} />
+                <div className="card-image" style={{ marginTop: '10px' }}>
+                  <Image src="/images/man-card.png" alt="Hombre" width={220} height={220} />
                 </div>
                 <div className="card-button">
                   <span>Hombre</span>
@@ -519,14 +598,16 @@ export default function Home() {
               </div>
             )}
 
-            {/* Continue Button */}
+            {/* Continue Button (disabled by requirement; auto-advance on option click) */}
+            {/**
             <button 
               className={`continue-button ${selectedAnswer ? 'active' : ''}`}
-              onClick={handleContinue}
+              onClick={() => handleContinue()}
               disabled={!selectedAnswer}
             >
               Continuar
             </button>
+            **/}
           </div>
         ) : currentStep === 'contact' ? (
           <div className="contact-section">
@@ -588,9 +669,14 @@ export default function Home() {
                   </h2>
                 </div>
                 
-                <button className="success-continue-button" onClick={handleResetQuiz}>
+                <Link 
+                  href="/" 
+                  className="success-continue-button"
+                  style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                  onClick={handleResetQuiz}
+                >
                   Completar el cuestionario
-                </button>
+                </Link>
               </div>
             </div>
           </div>

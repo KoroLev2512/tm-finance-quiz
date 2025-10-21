@@ -1036,11 +1036,6 @@ body {
         padding: 6.875rem 5rem 3.125rem;
     }
 
-    .results-image {
-        width: 20rem;
-        height: 10.5rem;
-    }
-
     .results-description {
         max-width: 32rem;
         padding: 1.5rem 1rem;
@@ -1154,11 +1149,6 @@ body {
     .results-section {
         padding: 6.25rem 1.25rem 2.5rem;
         gap: 2rem;
-    }
-
-    .results-image {
-        width: 18rem;
-        height: 9.5rem;
     }
 
     .results-description {
@@ -1367,11 +1357,6 @@ body {
     .results-section {
         padding: 7.5rem 1rem 2rem;
         gap: 2rem;
-    }
-
-    .results-image {
-        width: 18rem;
-        height: 9.5rem;
     }
 
     .results-description {
@@ -1600,11 +1585,6 @@ body {
         gap: 4.5rem;
     }
 
-    .results-image {
-        width: 42.5rem;
-        height: 22.25rem;
-    }
-
     .results-description {
         max-width: 55rem;
         padding: 3.75rem 3rem;
@@ -1809,11 +1789,6 @@ body {
         gap: 3.75rem;
     }
 
-    .results-image {
-        width: 35rem;
-        height: 18.25rem;
-    }
-
     .results-description {
         max-width: 45rem;
         padding: 3rem 2.5rem;
@@ -2012,11 +1987,6 @@ body {
     .results-section {
         padding: 7.5rem 2.5rem 3.75rem;
         gap: 3rem;
-    }
-
-    .results-image {
-        width: 28rem;
-        height: 14.5rem;
     }
 
     .results-description {
@@ -2221,11 +2191,6 @@ body {
     .results-section {
         padding: 7.5rem 1.25rem 2.5rem;
         gap: 2.5rem;
-    }
-
-    .results-image {
-        width: 22.5rem;
-        height: 11.75rem;
     }
 
     .results-description {

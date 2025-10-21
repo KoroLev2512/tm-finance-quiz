@@ -17,10 +17,7 @@ export default function ResultPage() {
     setIsMenuOpen(false)
   }
 
-  const handleResultsContinue = () => {
-    // Redirect to contact page or handle the next step
-    window.location.href = '/contact'
-  }
+  // SPA navigation handled via Link below
 
   useEffect(() => {
     // Update SEO for result page
@@ -86,10 +83,10 @@ export default function ResultPage() {
             ¿Quieres ver cómo es tu estilo trabaja en el mercado?
           </h2>
 
-          {/* Continue Button */}
-          <button className="results-continue-button" onClick={handleResultsContinue}>
+          {/* Continue Button as SPA Link */}
+          <Link href="/?step=contact" className="results-continue-button" prefetch>
             Continuar
-          </button>
+          </Link>
         </div>
       </main>
     </div>
