@@ -5,8 +5,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { CloseIcon, LogoIcon, ArrowIcon, ArrowBackIcon, SecureIcon, BurgerIcon } from "../../shared/icons";
 import { updateSEO, SEO_CONFIGS } from '../../utils/seo';
+import { useLanguage } from '@/shared/i18n/LanguageContext';
+import { LanguageSwitcher } from '@/shared/components/LanguageSwitcher';
 
 export default function ResultPage() {
+  const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => {
@@ -33,9 +36,12 @@ export default function ResultPage() {
             <ArrowBackIcon />
           </button>
           <Link href="/" className="header-logo-center"><LogoIcon/></Link>
-          <button className="menu-button" onClick={toggleMenu}>
-            <BurgerIcon/>
-          </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <LanguageSwitcher />
+            <button className="menu-button" onClick={toggleMenu}>
+              <BurgerIcon/>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -47,9 +53,9 @@ export default function ResultPage() {
             <CloseIcon/>
           </button>
           <nav className="menu-nav">
-            <Link href="/privacy" className="menu-item">Política de Privacidad</Link>
-            <Link href="/cookies" className="menu-item">Política de Cookies</Link>
-            <Link href="/contact" className="menu-item">Contacta con Nosotros</Link>
+            <Link href="/privacy" className="menu-item">{t.menu.privacy}</Link>
+            <Link href="/cookies" className="menu-item">{t.menu.cookies}</Link>
+            <Link href="/contact" className="menu-item">{t.menu.contact}</Link>
           </nav>
         </div>
       </div>
@@ -64,28 +70,23 @@ export default function ResultPage() {
 
           {/* Results Percentage */}
           <div className="results-percentage">
-            <p className="results-percentage-label">Probabilidad de su crecimiento financiero:</p>
-            <p className="results-percentage-value">97%</p>
+            <p className="results-percentage-label">{t.result.title}</p>
+            <p className="results-percentage-value">{t.result.percentage}</p>
           </div>
 
           {/* Results Description */}
           <div className="results-description">
-            <p>
-              Tus respuestas muestran que tienes cualidades que son perfectas
-              para el crecimiento financiero. Usted es capaz de equilibrar el
-              riesgo y la lógica — esto es lo que se necesita para el comercio y
-              las opciones binarias.
-            </p>
+            <p>{t.result.description}</p>
           </div>
 
           {/* Results Question */}
           <h2 className="results-question">
-            ¿Quieres ver cómo es tu estilo trabaja en el mercado?
+            {t.result.question}
           </h2>
 
           {/* Continue Button as SPA Link */}
           <Link href="/?step=contact" className="results-continue-button" prefetch>
-            Continuar
+            {t.result.continue}
           </Link>
         </div>
       </main>

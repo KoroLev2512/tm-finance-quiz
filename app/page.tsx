@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { CloseIcon, LogoIcon, ArrowIcon, ArrowBackIcon, SecureIcon, BurgerIcon } from "../shared/icons";
@@ -8,8 +8,11 @@ import { updateSEO, SEO_CONFIGS } from '../utils/seo';
 import { submitQuizToGoogleForms, getCurrentTimestamp, getUserAgent, submitEmailToSecondarySheet } from '../utils/googleForms';
 import type { QuizAnswer, QuizSubmission } from '../utils/googleForms';
 import CookieBanner from '../shared/components/CookieBanner';
+import { useLanguage } from '@/shared/i18n/LanguageContext';
+import { LanguageSwitcher } from '@/shared/components/LanguageSwitcher';
 
 export default function Home() {
+  const { t } = useLanguage();
   const [selectedGender, setSelectedGender] = useState<string | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [currentStep, setCurrentStep] = useState<'gender' | 'quiz' | 'contact' | 'success'>('gender')
@@ -270,49 +273,29 @@ export default function Home() {
 
   const quizQuestions: Record<number, QuizQuestion> = {
     1: {
-      question: "Lunes por la mañana. ¿Cómo empiezas el día?",
-      type: "text",
-      options: [
-        "Tomo café y planifico el día con calma.",
-        "Voy directo a la acción: tareas, llamadas, energía.",
-        "Dejo que pase el tiempo y ya veré qué ocurre."
-      ]
+      question: t.questions[0].text,
+      type: "text" as const,
+      options: t.questions[0].options
     },
     2: {
-      question: "¿Qué película sientes más cercana a tu espíritu?",
-      type: "text",
-      options: [
-        "\"El Lobo de Wall Street\" – dinamismo, riesgo, adrenalina.",
-        "\"Una mente brillante\" – análisis y mente fría.",
-        "\"Atrápame si puedes\" – flexibilidad y creatividad."
-      ]
+      question: t.questions[1].text,
+      type: "text" as const,
+      options: t.questions[1].options
     },
     3: {
-      question: "Tienes 100$ en la mano. ¿Qué harías?",
-      type: "text",
-      options: [
-        "Compraría algo para darme un gusto.",
-        "Intentaría multiplicarlos.",
-        "Los guardaría, que se queden ahí."
-      ]
+      question: t.questions[2].text,
+      type: "text" as const,
+      options: t.questions[2].options
     },
     4: {
-      question: "¿Cómo te relacionas con el riesgo?",
-      type: "text",
-      options: [
-        "Me encanta, el riesgo me da adrenalina.",
-        "Lo acepto, si hay lógica y cálculo.",
-        "Lo evito, aunque a veces me atrevo."
-      ]
+      question: t.questions[3].text,
+      type: "text" as const,
+      options: t.questions[3].options
     },
     5: {
-      question: "Debes tomar una decisión importante. ¿Qué valoras más?",
-      type: "text",
-      options: [
-        "La intuición.",
-        "El análisis y los cálculos.",
-        "El consejo de alguien en quien confío."
-      ]
+      question: t.questions[4].text,
+      type: "text" as const,
+      options: t.questions[4].options
     },
     6: {
       question: "¿Con qué animal te identificas en el tema del dinero?",
@@ -336,22 +319,14 @@ export default function Home() {
       ]
     },
     7: {
-      question: "Imagina que el gráfico del precio sube. ¿Qué piensas?",
-      type: "text",
-      options: [
-        "Entrar de inmediato!",
-        "Espero confirmación.",
-        "Y si de repente baja?"
-      ]
+      question: t.questions[6].text,
+      type: "text" as const,
+      options: t.questions[6].options
     },
     8: {
-      question: "¿Qué significa el dinero para ti?",
-      type: "text",
-      options: [
-        "Libertad.",
-        "Protección.",
-        "Oportunidad de crecimiento."
-      ]
+      question: t.questions[7].text,
+      type: "text" as const,
+      options: t.questions[7].options
     },
     9: {
       question: "Estás con amigos. ¿Qué rol tomas con más frecuencia?",
@@ -375,22 +350,14 @@ export default function Home() {
       ]
     },
     10: {
-      question: "¿Qué te motiva más?",
-      type: "text",
-      options: [
-        "Resultado rápido.",
-        "Crecimiento estable.",
-        "Balance: tanto resultado como crecimiento."
-      ]
+      question: t.questions[9].text,
+      type: "text" as const,
+      options: t.questions[9].options
     },
     11: {
-      question: "Si pierdes en un juego, ¿cuál es tu reacción?",
-      type: "text",
-      options: [
-        "¡Revancha! Quiero recuperar lo mío.",
-        "Analizo dónde me equivoqué.",
-        "No pasa nada, lo intentaré otra vez."
-      ]
+      question: t.questions[10].text,
+      type: "text" as const,
+      options: t.questions[10].options
     },
     12: {
       question: "¿Qué elemento sientes más cercano?",
@@ -435,22 +402,14 @@ export default function Home() {
       ]
     },
     14: {
-      question: "Imagina que tienes un superpoder. ¿Cuál elegirías?",
-      type: "text",
-      options: [
-        "Ver el futuro.",
-        "Controlar las emociones.",
-        "Atraer la suerte."
-      ]
+      question: t.questions[13].text,
+      type: "text" as const,
+      options: t.questions[13].options
     },
     15: {
-      question: "Si tuvieras la oportunidad de cambiar tu vida financiera mañana, ¿qué escogerías?",
-      type: "text",
-      options: [
-        "Un camino rápido con riesgo, pero con posibilidad de gran éxito.",
-        "Estabilidad y tranquilidad.",
-        "Una combinación – algo de estabilidad y algo de dinamismo."
-      ]
+      question: t.questions[14].text,
+      type: "text" as const,
+      options: t.questions[14].options
     }
   }
 
@@ -476,9 +435,12 @@ export default function Home() {
               <Link href="/">
                 <LogoIcon/>
               </Link>
-              <button className="menu-button" onClick={toggleMenu}>
-                <BurgerIcon/>
-              </button>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <LanguageSwitcher />
+                <button className="menu-button" onClick={toggleMenu}>
+                  <BurgerIcon/>
+                </button>
+              </div>
             </>
           )}
         </div>
@@ -492,9 +454,9 @@ export default function Home() {
             <CloseIcon/>
           </button>
           <nav className="menu-nav">
-            <Link href="/privacy" className="menu-item">Política de Privacidad</Link>
-            <Link href="/cookies" className="menu-item">Política de Cookies</Link>
-            <Link href="/contact" className="menu-item">Contacta con Nosotros</Link>
+            <Link href="/privacy" className="menu-item">{t.menu.privacy}</Link>
+            <Link href="/cookies" className="menu-item">{t.menu.cookies}</Link>
+            <Link href="/contact" className="menu-item">{t.menu.contact}</Link>
           </nav>
         </div>
       </div>
@@ -504,11 +466,15 @@ export default function Home() {
         {currentStep === 'gender' ? (
           <div className="hero-section">
             <h1 className="main-title">
-              CUESTIONARIO:<br />
-              TU MENTALIDAD FINANCIERA
+              {t.hero.title.split('\n').map((line, i) => (
+                <React.Fragment key={i}>
+                  {line}
+                  {i === 0 && <br />}
+                </React.Fragment>
+              ))}
             </h1>
             
-            <p className="subtitle">PRUEBA DE 2 MINUTOS</p>
+            <p className="subtitle">{t.hero.subtitle}</p>
             
             <div className="cards-container">
               <div 
@@ -519,7 +485,7 @@ export default function Home() {
                   <Image src="/images/man-card.png" alt="Hombre" width={220} height={220} />
                 </div>
                 <div className="card-button">
-                  <span>Hombre</span>
+                  <span>{t.hero.man}</span>
                   <ArrowIcon/>
                 </div>
               </div>
@@ -529,17 +495,17 @@ export default function Home() {
                 onClick={() => handleGenderSelect('Mujer')}
               >
                 <div className="card-image">
-                  <Image src="/images/woman-card.png" alt="Mujer" width={200} height={200} />
+                  <Image src="/images/woman-card.png" alt={t.hero.woman} width={200} height={200} />
                 </div>
                 <div className="card-button">
-                  <span>Mujer</span>
+                  <span>{t.hero.woman}</span>
                   <ArrowIcon/>
                 </div>
               </div>
             </div>
 
             <p className="terms-text">
-              Al hacer clic en &quot;Hombre&quot; o &quot;Mujer&quot;, acepta la <Link href="/privacy" className="terms-link">Política de Privacidad</Link> y la <Link href="/cookies" className="terms-link">Política de Cookies</Link>
+              {t.hero.terms} <Link href="/privacy" className="terms-link">{t.hero.privacyPolicy}</Link> {t.hero.and} <Link href="/cookies" className="terms-link">{t.hero.cookiePolicy}</Link>
             </p>
           </div>
         ) : currentStep === 'quiz' ? (

@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "npx serve build",
+    "build": "next build && cp public/_redirects out/_redirects && cp public/.htaccess out/.htaccess",
+    "start": "npx serve out",
     "lint": "next lint",
-    "export": "next build",
-    "preview": "npx serve build"
+    "export": "next build && cp public/_redirects out/_redirects && cp public/.htaccess out/.htaccess",
+    "preview": "npx serve out"
   },
   "dependencies": {
     "next": "^15.1.0",
