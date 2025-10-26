@@ -2332,13 +2332,13 @@ body {
     font-weight: 500;
     font-size: 1rem;
     line-height: 1.4;
-    color: #3D568F;
+    color: #FFFFFF;
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .back-button:hover {
-    color: #2a4a7a;
+    color: #E5E5E5;
 }
 
 .policy-title {

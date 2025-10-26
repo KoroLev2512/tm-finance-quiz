@@ -37,9 +37,9 @@ export default function PrivacyPage() {
             <CloseIcon/>
           </button>
           <nav className="menu-nav">
-            <Link href="/privacy" className="menu-item">Política de Privacidad</Link>
-            <Link href="/cookies" className="menu-item">Política de Cookies</Link>
-            <Link href="/contact" className="menu-item">Contacta con Nosotros</Link>
+            <Link href="/privacy" className="menu-item">Privacy Policy</Link>
+            <Link href="/cookies" className="menu-item">Cookie Policy</Link>
+            <Link href="/contact" className="menu-item">Contact Us</Link>
           </nav>
         </div>
       </div>
@@ -52,286 +52,295 @@ export default function PrivacyPage() {
               <div className="back-button-container">
                 <Link href="/" className="back-button">
                   <ArrowBackIcon />
-                  <span>Volver</span>
+                  <span>Back</span>
                 </Link>
               </div>
               
-              <h1 className="policy-title">Política respecto al tratamiento de datos personales</h1>
+              <h1 className="policy-title">Privacy Policy</h1>
               
               <div className="policy-content-wrapper">
                 <div className="policy-section-item">
-                  <h2 className="policy-section-title">Preámbulo</h2>
+                  <h2 className="policy-section-title">Preamble</h2>
                   <p className="policy-text">
-                    La presente política de tratamiento de datos personales se ha redactado de conformidad con lo dispuesto en el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de 2016, relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de estos datos (GDPR) y la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD). Define el procedimiento de tratamiento de datos personales y las medidas para garantizar su seguridad, implementadas por UMF Global Services Ltd. (en adelante, el Operador).
+                    This policy on the processing of personal data has been drafted in accordance with the requirements of Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data (GDPR) and Organic Law 3/2018, of 5 December, on the Protection of Personal Data and guarantee of digital rights (LOPDGDD). It defines the procedure for processing personal data and the measures to ensure their security, implemented by UMF Global Services Ltd. (hereinafter, the Operator).
                   </p>
                   <p className="policy-text">
-                    1.1. El Operador tiene como objetivo y condición más importante de sus actividades el respeto de los derechos y libertades del ser humano y del ciudadano en el tratamiento de sus datos personales, incluida la protección de los derechos a la privacidad personal y familiar.
+                    1.1. The Operator&apos;s most important goal and condition for carrying out its activities is respect for the rights and freedoms of individuals when processing their personal data, including the protection of the rights to privacy, personal and family secrets.
                   </p>
                   <p className="policy-text">
-                    1.2. La presente política del Operador respecto al tratamiento de datos personales (en adelante, la Política) se aplica a toda la información que el Operador pueda recibir sobre los visitantes del sitio web https://umfinance.pro.
-                  </p>
-                </div>
-                
-                <div className="policy-section-item">
-                  <h2 className="policy-section-title">2. Conceptos básicos utilizados en la Política</h2>
-                  <p className="policy-text">
-                    2.1. Tratamiento automatizado de datos personales: tratamiento de datos personales mediante equipos informáticos.
-                  </p>
-                  <p className="policy-text">
-                    2.2. Bloqueo de datos personales: interrupción temporal del tratamiento de datos personales (excepto cuando sea necesario para actualizar los datos).
-                  </p>
-                  <p className="policy-text">
-                    2.3. Sitio web: conjunto de materiales gráficos e informativos, así como programas informáticos y bases de datos que garantizan su disponibilidad en Internet en la dirección de red https://umfinance.pro.
-                  </p>
-                  <p className="policy-text">
-                    2.4. Sistema de información de datos personales: conjunto de datos personales contenidos en bases de datos y las tecnologías de la información y medios técnicos que garantizan su tratamiento.
-                  </p>
-                  <p className="policy-text">
-                    2.5. Anonimización de datos personales: acciones que hacen imposible determinar, sin información adicional, la pertenencia de los datos personales a un Usuario u otro sujeto de datos específico.
-                  </p>
-                  <p className="policy-text">
-                    2.6. Tratamiento de datos personales: cualquier operación o conjunto de operaciones realizadas con datos personales, ya sea por medios automatizados o no, incluidos la recogida, registro, organización, estructuración, conservación, adaptación o modificación, extracción, consulta, uso, comunicación por transmisión, difusión o cualquier otra forma de habilitación de acceso, cotejo o interconexión, limitación, supresión o destrucción.
-                  </p>
-                  <p className="policy-text">
-                    2.7. Operador: el organismo estatal, municipal, la persona jurídica o física que, solo o conjuntamente con otras, organice y/o realice el tratamiento de datos personales, así como determine los fines y el contenido del tratamiento de datos personales.
-                  </p>
-                  <p className="policy-text">
-                    2.8. Datos personales: cualquier información relativa directa o indirectamente a un Usuario del sitio web https://umfinance.pro, identificado o identificable.
-                  </p>
-                  <p className="policy-text">
-                    2.9. Datos personales autorizados para su divulgación: datos personales a los que el titular ha dado acceso a un círculo ilimitado de personas mediante el consentimiento para su tratamiento de conformidad con la ley (en adelante, datos personales autorizados para su divulgación).
-                  </p>
-                  <p className="policy-text">
-                    2.10. Usuario: cualquier visitante del sitio web https://umfinance.pro.
-                  </p>
-                  <p className="policy-text">
-                    2.11. Comunicación de datos personales: acciones dirigidas a revelar datos personales a una persona o círculo determinado de personas.
-                  </p>
-                  <p className="policy-text">
-                    2.12. Divulgación de datos personales: cualquier acción dirigida a revelar datos personales a un círculo indeterminado de personas o a dar acceso a ellos a un círculo ilimitado de personas.
-                  </p>
-                  <p className="policy-text">
-                    2.13. Transferencia internacional de datos personales: transferencia de datos personales a un país extranjero, a una autoridad extranjera, persona física o jurídica extranjera.
-                  </p>
-                  <p className="policy-text">
-                    2.14. Destrucción de datos personales: cualquier acción como resultado de la cual los datos personales se destruyen de forma irreversible, con imposibilidad de restaurar su contenido en el sistema de información de datos personales y/o se destruyen los soportes materiales de los datos personales.
+                    1.2. This Operator&apos;s policy regarding the processing of personal data (hereinafter, the Policy) applies to all information that the Operator may receive about visitors to the website https://umfinance.pro.
                   </p>
                 </div>
-                
+
                 <div className="policy-section-item">
-                  <h2 className="policy-section-title">3. Derechos y obligaciones básicos del Operador</h2>
+                  <h2 className="policy-section-title">2. Basic Concepts Used in the Policy</h2>
                   <p className="policy-text">
-                    3.1. El Operador tiene derecho a:
+                    2.1. Automated processing of personal data: processing of personal data using computer equipment.
                   </p>
                   <p className="policy-text">
-                    — Recibir del titular información y/o documentos veraces que contengan datos personales;
+                    2.2. Blocking of personal data: temporary cessation of processing of personal data (except when processing is necessary to clarify personal data).
                   </p>
                   <p className="policy-text">
-                    — Continuar el tratamiento de datos personales sin el consentimiento del titular en los casos previstos por el GDPR;
+                    2.3. Website: a set of graphical and informational materials, as well as computer programs and databases that ensure their availability on the Internet at the network address https://umfinance.pro.
                   </p>
                   <p className="policy-text">
-                    — Determinar de forma independiente la composición y lista de medidas necesarias y suficientes para garantizar el cumplimiento de las obligaciones establecidas por el GDPR y la normativa aplicable.
+                    2.4. Personal data information system: a set of personal data contained in databases and the information technologies and technical means that ensure their processing.
                   </p>
                   <p className="policy-text">
-                    3.2. El Operador está obligado a:
+                    2.5. Anonymization of personal data: actions that make it impossible to determine, without additional information, the attribution of personal data to a specific User or other subject of personal data.
                   </p>
                   <p className="policy-text">
-                    — Proporcionar al titular, a su solicitud, información relativa al tratamiento de sus datos personales;
+                    2.6. Processing of personal data: any action (operation) or set of actions (operations) performed with or without the use of automation tools with personal data, including collection, recording, systematization, accumulation, storage, clarification (updating, changing), extraction, use, transfer (distribution, provision, access), anonymization, blocking, deletion, destruction of personal data.
                   </p>
                   <p className="policy-text">
-                    — Organizar el tratamiento de datos personales conforme a la legislación vigente;
+                    2.7. Operator: a state body, municipal body, legal entity or individual, independently or jointly with others, organizing and/or carrying out the processing of personal data, as well as determining the purposes of processing personal data, the composition of personal data to be processed, and the actions (operations) performed with personal data.
                   </p>
                   <p className="policy-text">
-                    — Responder a las solicitudes y peticiones de los titulares de datos personales y sus representantes legales de conformidad con los requisitos del GDPR;
+                    2.8. Personal data: any information relating directly or indirectly to a specific or identifiable User of the website https://umfinance.pro.
                   </p>
                   <p className="policy-text">
-                    — Publicar o garantizar de otro modo el acceso ilimitado a la presente Política de tratamiento de datos personales;
+                    2.9. Personal data permitted by the data subject for dissemination: personal data to which an unlimited number of persons have been granted access by the data subject by giving consent to the processing of personal data permitted by the data subject for dissemination in the manner prescribed by law (hereinafter, personal data permitted for dissemination).
                   </p>
                   <p className="policy-text">
-                    — Adoptar medidas legales, organizativas y técnicas para proteger los datos personales del acceso ilegal o accidental, destrucción, modificación, bloqueo, copia, divulgación o distribución, así como de otras acciones ilícitas;
+                    2.10. User: any visitor to the website https://umfinance.pro.
                   </p>
                   <p className="policy-text">
-                    — Cesar la transferencia, el tratamiento y destruir los datos personales en la forma y los casos previstos por el GDPR;
+                    2.11. Provision of personal data: actions aimed at disclosing personal data to a specific person or a specific circle of persons.
                   </p>
                   <p className="policy-text">
-                    — Cumplir con otras obligaciones establecidas por el GDPR.
+                    2.12. Dissemination of personal data: any actions aimed at disclosing personal data to an indefinite circle of persons (transfer of personal data) or at making personal data known to an unlimited circle of persons, including the publication of personal data in the mass media, posting in information and telecommunication networks, or providing access to personal data in any other way.
+                  </p>
+                  <p className="policy-text">
+                    2.13. Cross-border transfer of personal data: the transfer of personal data to the territory of a foreign state to an authority of a foreign state, a foreign individual, or a foreign legal entity.
+                  </p>
+                  <p className="policy-text">
+                    2.14. Destruction of personal data: any actions as a result of which personal data are destroyed irrevocably with the impossibility of further restoring the content of personal data in the personal data information system and/or the material carriers of personal data are destroyed.
                   </p>
                 </div>
-                
+
                 <div className="policy-section-item">
-                  <h2 className="policy-section-title">4. Derechos y obligaciones básicos de los titulares de datos personales</h2>
+                  <h2 className="policy-section-title">3. Basic Rights and Obligations of the Operator</h2>
                   <p className="policy-text">
-                    4.1. Los titulares de datos personales tienen derecho a:
+                    <strong>3.1. The Operator has the right to:</strong>
                   </p>
                   <p className="policy-text">
-                    — Obtener información relativa al tratamiento de sus datos personales, excepto en los casos previstos por la ley. La información se facilita al titular por el Operador de forma accesible;
+                    — Receive from the data subject reliable information and/or documents containing personal data;
                   </p>
                   <p className="policy-text">
-                    — Exigir al Operador que actualice, bloquee o destruya sus datos personales si son incompletos, obsoletos, inexactos, obtenidos ilegalmente o no son necesarios para el fin declarado del tratamiento, así como a tomar medidas legales para proteger sus derechos;
+                    — Continue processing personal data without the data subject&apos;s consent in cases provided for by the GDPR;
                   </p>
                   <p className="policy-text">
-                    — Plantear la condición de consentimiento previo para el tratamiento de datos personales con fines de mercadotecnia;
+                    — Independently determine the composition and list of measures necessary and sufficient to ensure the fulfillment of obligations provided for by the GDPR and applicable regulations.
                   </p>
                   <p className="policy-text">
-                    — Revocar su consentimiento para el tratamiento de datos personales, así como a presentar una solicitud para cesar el tratamiento de datos personales;
+                    <strong>3.2. The Operator is obliged to:</strong>
                   </p>
                   <p className="policy-text">
-                    — Reclamar ante la autoridad de control competente (Agencia Española de Protección de Datos) o vía judicial las acciones u omisiones ilegales del Operador en el tratamiento de sus datos personales;
+                    — Provide the data subject, upon his/her request, with information concerning the processing of his/her personal data;
                   </p>
                   <p className="policy-text">
-                    — Ejercer otros derechos previstos por la legislación.
+                    — Organize the processing of personal data in accordance with the procedure established by current legislation;
                   </p>
                   <p className="policy-text">
-                    4.2. Los titulares de datos personales están obligados a:
+                    — Respond to appeals and requests from data subjects and their legal representatives in accordance with the requirements of the GDPR;
                   </p>
                   <p className="policy-text">
-                    — Facilitar al Operador datos veraces sobre sí mismos;
+                    — Publish or otherwise ensure unrestricted access to this Policy on the processing of personal data;
                   </p>
                   <p className="policy-text">
-                    — Informar al Operador sobre la actualización de sus datos personales.
+                    — Take legal, organizational, and technical measures to protect personal data from unlawful or accidental access, destruction, modification, blocking, copying, provision, distribution, as well as from other unlawful actions in relation to personal data;
                   </p>
                   <p className="policy-text">
-                    4.3. Las personas que hayan facilitado al Operador información falsa sobre sí mismas, o información sobre otro titular de datos personales sin el consentimiento de este último, serán responsables conforme a la legislación.
+                    — Cease the transfer, processing, and destroy personal data in the manner and cases provided for by the GDPR;
+                  </p>
+                  <p className="policy-text">
+                    — Perform other duties provided for by the GDPR.
                   </p>
                 </div>
-                
+
                 <div className="policy-section-item">
-                  <h2 className="policy-section-title">5. Principios del tratamiento de datos personales</h2>
+                  <h2 className="policy-section-title">4. Basic Rights and Obligations of Data Subjects</h2>
                   <p className="policy-text">
-                    5.1. El tratamiento de datos personales se realiza de forma lícita y leal.
+                    <strong>4.1. Data subjects have the right to:</strong>
                   </p>
                   <p className="policy-text">
-                    5.2. El tratamiento de datos personales se limita al cumplimiento de fines específicos, predeterminados y legítimos. No se permite el tratamiento de datos personales incompatible con dichos fines.
+                    — Obtain information regarding the processing of their personal data, except in cases provided for by law. The information is provided to the data subject by the Operator in an accessible form;
                   </p>
                   <p className="policy-text">
-                    5.3. No se permite la combinación de bases de datos que contengan datos personales cuyo tratamiento se realiza con fines incompatibles entre sí.
+                    — Require the Operator to clarify, block, or destroy their personal data if the data is incomplete, outdated, inaccurate, illegally obtained, or not necessary for the stated purpose of processing, as well as take legal measures to protect their rights;
                   </p>
                   <p className="policy-text">
-                    5.4. Solo serán objeto de tratamiento los datos personales que cumplan con los fines de su tratamiento.
+                    — Impose the condition of prior consent for the processing of personal data for the purpose of promoting goods, works, and services on the market;
                   </p>
                   <p className="policy-text">
-                    5.5. El contenido y volumen de los datos personales tratados se corresponden con los fines declarados del tratamiento. No se permite el exceso de datos personales tratados en relación con los fines declarados.
+                    — Withdraw consent to the processing of personal data, as well as submit a demand to cease the processing of personal data;
                   </p>
                   <p className="policy-text">
-                    5.6. En el tratamiento de datos personales se garantiza su exactitud y, en los casos necesarios, su actualidad con respecto a los fines del tratamiento. El Operador toma las medidas necesarias para eliminar o rectificar los datos incompletos o inexactos.
+                    — Appeal to the competent supervisory authority (Spanish Data Protection Agency) or in court the unlawful actions or inaction of the Operator in the processing of their personal data;
                   </p>
                   <p className="policy-text">
-                    5.7. El almacenamiento de datos personales se realiza en una forma que permita identificar al titular, no más tiempo del necesario para los fines de su tratamiento, a menos que el plazo esté establecido por ley o contrato.
+                    — Exercise other rights provided for by law.
+                  </p>
+                  <p className="policy-text">
+                    <strong>4.2. Data subjects are obliged to:</strong>
+                  </p>
+                  <p className="policy-text">
+                    — Provide the Operator with reliable data about themselves;
+                  </p>
+                  <p className="policy-text">
+                    — Inform the Operator about the updating of their personal data.
+                  </p>
+                  <p className="policy-text">
+                    4.3. Persons who have provided the Operator with false information about themselves, or information about another data subject without the latter&apos;s consent, shall be liable in accordance with the law.
                   </p>
                 </div>
-                
+
                 <div className="policy-section-item">
-                  <h2 className="policy-section-title">6. Fines del tratamiento de datos personales</h2>
+                  <h2 className="policy-section-title">5. Principles of Personal Data Processing</h2>
                   <p className="policy-text">
-                    Finalidad del tratamiento: Informar al Usuario mediante el envío de correos electrónicos
+                    5.1. The processing of personal data is carried out on a lawful and fair basis.
                   </p>
                   <p className="policy-text">
-                    Datos personales: Dirección de correo electrónico, Apellidos y nombre
+                    5.2. The processing of personal data is limited to the achievement of specific, predetermined, and legitimate purposes. Processing of personal data that is incompatible with the purposes of collecting personal data is not allowed.
                   </p>
                   <p className="policy-text">
-                    Base legal: GDPR y el consentimiento del Usuario.
+                    5.3. The combination of databases containing personal data processed for incompatible purposes is not allowed.
                   </p>
                   <p className="policy-text">
-                    Tipos de tratamiento: Envío de boletines informativos a la dirección de correo electrónico.
+                    5.4. Only personal data that meets the purposes of their processing are subject to processing.
+                  </p>
+                  <p className="policy-text">
+                    5.5. The content and volume of processed personal data correspond to the stated purposes of processing. Redundancy of processed personal data in relation to the stated purposes of their processing is not allowed.
+                  </p>
+                  <p className="policy-text">
+                    5.6. The accuracy of personal data, their sufficiency, and, where necessary, relevance in relation to the purposes of processing personal data are ensured during processing. The Operator takes necessary measures and/or ensures their adoption to delete or clarify incomplete or inaccurate data.
+                  </p>
+                  <p className="policy-text">
+                    5.7. The storage of personal data is carried out in a form that allows identification of the data subject, no longer than required by the purposes of processing personal data, unless the storage period is established by federal law or an agreement to which the data subject is a party.
                   </p>
                 </div>
-                
+
                 <div className="policy-section-item">
-                  <h2 className="policy-section-title">7. Condiciones del tratamiento de datos personales</h2>
+                  <h2 className="policy-section-title">6. Purposes of Personal Data Processing</h2>
+                  <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '1rem' }}>
+                    <tbody>
+                      <tr style={{ borderBottom: '1px solid #E5E5E5' }}>
+                        <td style={{ padding: '0.75rem', fontWeight: 600 }}>Processing Purpose</td>
+                        <td style={{ padding: '0.75rem' }}>Informing the User by sending emails</td>
+                      </tr>
+                      <tr style={{ borderBottom: '1px solid #E5E5E5' }}>
+                        <td style={{ padding: '0.75rem', fontWeight: 600 }}>Personal data</td>
+                        <td style={{ padding: '0.75rem' }}>
+                          • Email address<br />
+                          • Last name and first name
+                        </td>
+                      </tr>
+                      <tr style={{ borderBottom: '1px solid #E5E5E5' }}>
+                        <td style={{ padding: '0.75rem', fontWeight: 600 }}>Legal basis</td>
+                        <td style={{ padding: '0.75rem' }}>GDPR and the User&apos;s consent.</td>
+                      </tr>
+                      <tr>
+                        <td style={{ padding: '0.75rem', fontWeight: 600 }}>Types of processing</td>
+                        <td style={{ padding: '0.75rem' }}>Sending informational emails to the email address.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="policy-section-item">
+                  <h2 className="policy-section-title">7. Conditions for Personal Data Processing</h2>
                   <p className="policy-text">
-                    7.1. El tratamiento de datos personales se realiza con el consentimiento del titular para el tratamiento de sus datos personales.
+                    7.1. The processing of personal data is carried out with the consent of the data subject to the processing of his/her personal data.
                   </p>
                   <p className="policy-text">
-                    7.2. El tratamiento es necesario para el cumplimiento de una obligación legal aplicable al Operador.
+                    7.2. Processing is necessary for compliance with a legal obligation applicable to the Operator.
                   </p>
                   <p className="policy-text">
-                    7.3. El tratamiento es necesario para la ejecución de un contrato en el que el titular es parte o para la aplicación de medidas precontractuales a petición de este.
+                    7.3. Processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract.
                   </p>
                   <p className="policy-text">
-                    7.4. El tratamiento es necesario para la satisfacción de intereses legítimos perseguidos por el Operador o por un tercero, siempre que no prevalezcan sobre dichos intereses los derechos e intereses fundamentales del titular.
+                    7.4. Processing is necessary for the purposes of the legitimate interests pursued by the Operator or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject.
                   </p>
                   <p className="policy-text">
-                    7.5. Se trata de datos personales que el titular ha hecho manifiestamente públicos.
+                    7.5. Processing relates to personal data which are manifestly made public by the data subject.
                   </p>
                   <p className="policy-text">
-                    7.6. El tratamiento es necesario para la formulación, ejercicio o defensa de reclamaciones.
+                    7.6. Processing is necessary for the establishment, exercise or defense of legal claims.
                   </p>
                   <p className="policy-text">
-                    7.7. Se trata de datos personales cuyo tratamiento es necesario por razones de interés público.
+                    7.7. Processing is necessary for reasons of public interest.
                   </p>
                 </div>
-                
+
                 <div className="policy-section-item">
-                  <h2 className="policy-section-title">8. Procedimiento de recogida, almacenamiento, transferencia y otros tipos de tratamiento de datos personales</h2>
+                  <h2 className="policy-section-title">8. Procedure for Collection, Storage, Transfer, and Other Types of Personal Data Processing</h2>
                   <p className="policy-text">
-                    La seguridad de los datos personales tratados por el Operador está garantizada mediante la implementación de medidas legales, organizativas y técnicas necesarias para cumplir con la normativa vigente en materia de protección de datos.
+                    The security of personal data processed by the Operator is ensured through the implementation of legal, organizational, and technical measures necessary to fully comply with the requirements of current data protection legislation.
                   </p>
                   <p className="policy-text">
-                    8.1. El Operador garantiza la confidencialidad de los datos personales y toma todas las medidas posibles para excluir el acceso a los datos personales por parte de personas no autorizadas.
+                    8.1. The Operator ensures the confidentiality of personal data and takes all possible measures to prevent unauthorized access to personal data.
                   </p>
                   <p className="policy-text">
-                    8.2. Los datos personales del Usuario nunca, bajo ninguna circunstancia, serán transferidos a terceros, excepto en los casos relacionados con el cumplimiento de la legislación vigente o si el titular ha dado su consentimiento al Operador para transferir los datos a un tercero para el cumplimiento de obligaciones de un contrato civil.
+                    8.2. The User&apos;s personal data will never, under any circumstances, be transferred to third parties, except in cases related to the execution of current legislation or if the data subject has given consent to the Operator to transfer the data to a third party to fulfill obligations under a civil law contract.
                   </p>
                   <p className="policy-text">
-                    8.3. En caso de detectar inexactitudes en los datos personales, el Usuario puede actualizarlos de forma independiente, enviando una notificación al Operador al correo electrónico privacy@umfinance.com con la mención &quot;Actualización de datos personales&quot;.
+                    8.3. In case inaccuracies in personal data are identified, the User can update them independently by sending a notification to the Operator&apos;s email address privacy@umfinance.com with the subject &quot;Update of personal data&quot;.
                   </p>
                   <p className="policy-text">
-                    8.4. El plazo de tratamiento de datos personales se determina por la consecución de los fines para los que se recogieron, a menos que un plazo diferente esté establecido por contrato o por la legislación vigente.
+                    8.4. The period for processing personal data is determined by the achievement of the purposes for which the personal data were collected, unless a different period is provided for by the contract or current legislation.
+                    The User may at any time withdraw his/her consent to the processing of personal data by sending a notification to the Operator via email to privacy@umfinance.com with the subject &quot;Withdrawal of consent to the processing of personal data&quot;.
                   </p>
                   <p className="policy-text">
-                    El Usuario puede en cualquier momento revocar su consentimiento para el tratamiento de datos personales, enviando una notificación al Operador por correo electrónico a privacy@umfinance.com con la mención &quot;Revocación del consentimiento para el tratamiento de datos personales&quot;.
+                    8.5. All information collected by third-party services, including payment systems, communication tools, and other service providers, is stored and processed by the specified persons (Operators) in accordance with their User Agreement and Privacy Policy. The Operator is not responsible for the actions of third parties, including the service providers mentioned in this clause.
                   </p>
                   <p className="policy-text">
-                    8.5. Toda la información recogida por servicios de terceros, incluidos sistemas de pago, servicios de comunicación y otros proveedores, se almacena y trata por dichas personas (Operadores) de acuerdo con sus Acuerdos de Usuario y Políticas de Privacidad. El Operador no es responsable de las acciones de terceros, incluidos los proveedores de servicios mencionados en este punto.
+                    8.6. The Operator, when processing personal data, ensures their confidentiality.
                   </p>
                   <p className="policy-text">
-                    8.6. El Operador en el tratamiento de datos personales garantiza su confidencialidad.
+                    8.7. The Operator stores personal data in a form that allows identification of the data subject, no longer than required by the purposes of processing personal data.
                   </p>
                   <p className="policy-text">
-                    8.7. El Operador almacena los datos personales de forma que permita identificar al titular, no más tiempo del necesario para los fines de su tratamiento.
-                  </p>
-                  <p className="policy-text">
-                    8.8. La condición para cesar el tratamiento de datos personales puede ser la consecución de los fines del tratamiento, la expiración del consentimiento del titular, la revocación del consentimiento o la solicitud de cese del tratamiento, así como la detección de un tratamiento ilícito de datos personales.
+                    8.8. The condition for terminating the processing of personal data may be the achievement of the processing purposes, expiration of the data subject&apos;s consent, withdrawal of consent by the data subject, or a request to cease processing of personal data, as well as the identification of unlawful processing of personal data.
                   </p>
                 </div>
-                
+
                 <div className="policy-section-item">
-                  <h2 className="policy-section-title">9. Lista de acciones realizadas por el Operador con los datos personales obtenidos</h2>
+                  <h2 className="policy-section-title">9. List of Actions Performed by the Operator with the Received Personal Data</h2>
                   <p className="policy-text">
-                    9.1. El Operador realiza la recogida, registro, organización, estructuración, almacenamiento, actualización, modificación, extracción, consulta, uso, transferencia, difusión, anonimización, bloqueo, supresión y destrucción de datos personales.
+                    9.1. The Operator performs collection, recording, systematization, accumulation, storage, clarification (updating, modification), extraction, use, transfer (distribution, provision, access), anonymization, blocking, deletion, and destruction of personal data.
                   </p>
                   <p className="policy-text">
-                    9.2. El Operador realiza el tratamiento automatizado de datos personales con la recepción y/o transferencia de la información obtenida a través de redes de telecomunicaciones o sin ella.
+                    9.2. The Operator performs automated processing of personal data with the receipt and/or transmission of the obtained information via information and telecommunication networks or without it.
                   </p>
                 </div>
-                
+
                 <div className="policy-section-item">
-                  <h2 className="policy-section-title">10. Transferencia internacional de datos personales</h2>
+                  <h2 className="policy-section-title">10. Cross-Border Transfer of Personal Data</h2>
                   <p className="policy-text">
-                    10.1. El Operador, antes de iniciar la actividad de transferencia internacional de datos personales, debe asegurarse de que el país extranjero al que se transferirán garantiza un nivel adecuado de protección de conformidad con el GDPR.
+                    10.1. Before commencing the cross-border transfer of personal data, the Operator must ensure that the foreign country to which the data will be transferred ensures an adequate level of protection in accordance with the GDPR.
                   </p>
                   <p className="policy-text">
-                    10.2. La transferencia internacional de datos personales en el territorio de países extranjeros que no proporcionan una protección adecuada puede realizarse en los casos previstos expresamente por el GDPR.
+                    10.2. Cross-border transfer of personal data to the territory of foreign countries that do not provide adequate protection can be carried out in cases expressly provided for by the GDPR.
                   </p>
                 </div>
-                
+
                 <div className="policy-section-item">
-                  <h2 className="policy-section-title">11. Confidencialidad de los datos personales</h2>
+                  <h2 className="policy-section-title">11. Confidentiality of Personal Data</h2>
                   <p className="policy-text">
-                    El Operador y otras personas que hayan obtenido acceso a los datos personales están obligados a no revelarlos a terceros ni divulgarlos sin el consentimiento del titular, a menos que la ley disponga otra cosa.
+                    The Operator and other persons who have gained access to personal data are obliged not to disclose to third parties and not to distribute personal data without the consent of the data subject, unless otherwise provided by federal law.
                   </p>
                 </div>
-                
+
                 <div className="policy-section-item">
-                  <h2 className="policy-section-title">12. Disposiciones finales</h2>
+                  <h2 className="policy-section-title">12. Final Provisions</h2>
                   <p className="policy-text">
-                    12.1. El Usuario puede obtener cualquier aclaración sobre cuestiones de interés relacionadas con el tratamiento de sus datos personales, contactando al Operador por correo electrónico a privacy@umfinance.com.
+                    12.1. The User can obtain any clarifications on questions of interest regarding the processing of his/her personal data by contacting the Operator via email at privacy@umfinance.com.
                   </p>
                   <p className="policy-text">
-                    12.2. En este documento se reflejarán cualquier cambio en la política de tratamiento de datos personales por parte del Operador. La Política es válida por tiempo indefinido hasta que sea reemplazada por una nueva versión.
+                    12.2. This document will reflect any changes to the Operator&apos;s personal data processing policy. The Policy is valid indefinitely until replaced by a new version.
                   </p>
                   <p className="policy-text">
-                    12.3. La versión actual de la Política está disponible libremente en Internet en https://umfinance.pro/privacy/.
+                    12.3. The current version of the Policy is freely available on the Internet at https://umfinance.pro/privacy/.
                   </p>
                 </div>
               </div>
