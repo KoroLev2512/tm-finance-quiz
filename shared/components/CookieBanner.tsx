@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useLanguage } from '../i18n/LanguageContext'
 
 interface CookieBannerProps {
   onAccept?: () => void
@@ -9,6 +10,7 @@ interface CookieBannerProps {
 }
 
 const CookieBanner = ({ onAccept, onReject }: CookieBannerProps) => {
+  const { t } = useLanguage()
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -37,19 +39,15 @@ const CookieBanner = ({ onAccept, onReject }: CookieBannerProps) => {
     <div className="cookie-banner">
       <div className="cookie-banner-content">
         <div className="cookie-banner-header">
-          <h3 className="cookie-banner-title">Prioritizing Your Privacy</h3>
+          <h3 className="cookie-banner-title">{t.cookieBanner.title}</h3>
         </div>
         
         <div className="cookie-banner-body">
           <p className="cookie-banner-text">
-            We use cookies and similar technologies to enhance your browsing experience, analyze site traffic, and personalize content. Some cookies are necessary for the website to function and cannot be switched off.
-            {' '}
-            By clicking &quot;Accept All&quot;, you consent to the use of all cookies, including those for analytics and marketing.
-            {' '}
+            {t.cookieBanner.text}{' '}
             <Link href="/cookies" className="cookie-banner-link">
-              Click here to learn more
+              {t.cookieBanner.learnMore}
             </Link>
-            .
           </p>
           
           <div className="cookie-banner-buttons">
@@ -57,13 +55,13 @@ const CookieBanner = ({ onAccept, onReject }: CookieBannerProps) => {
               className="cookie-banner-button cookie-banner-button-accept"
               onClick={handleAccept}
             >
-              Accept All
+              {t.cookieBanner.accept}
             </button>
             <button 
               className="cookie-banner-button cookie-banner-button-reject"
               onClick={handleReject}
             >
-              Reject
+              {t.cookieBanner.reject}
             </button>
           </div>
         </div>

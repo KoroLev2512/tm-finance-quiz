@@ -3,8 +3,11 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { CloseIcon, LogoIcon, BurgerIcon } from "../../shared/icons";
+import { useLanguage } from '../../shared/i18n/LanguageContext';
+import { LanguageSwitcher } from '../../shared/components/LanguageSwitcher';
 
 const ContactPage = () => {
+    const { t } = useLanguage();
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     const toggleMenu = () => {
@@ -23,9 +26,12 @@ const ContactPage = () => {
                     <Link href="/" className="logo">
                         <LogoIcon />
                     </Link>
-                    <button className="menu-button" onClick={toggleMenu}>
-                        <BurgerIcon />
-                    </button>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <LanguageSwitcher />
+                        <button className="menu-button" onClick={toggleMenu}>
+                            <BurgerIcon />
+                        </button>
+                    </div>
                 </div>
             </header>
 
@@ -37,9 +43,9 @@ const ContactPage = () => {
                         <CloseIcon/>
                     </button>
                     <nav className="menu-nav">
-                        <Link href="/privacy" className="menu-item">Política de Privacidad</Link>
-                        <Link href="/cookies" className="menu-item">Política de Cookies</Link>
-                        <Link href="/contact" className="menu-item">Contacta con Nosotros</Link>
+                        <Link href="/privacy" className="menu-item">{t.menu.privacy}</Link>
+                        <Link href="/cookies" className="menu-item">{t.menu.cookies}</Link>
+                        <Link href="/contact" className="menu-item">{t.menu.contact}</Link>
                     </nav>
                 </div>
             </div>
