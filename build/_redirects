@@ -4,15 +4,6 @@ https://www.umfinance.pro/* https://umfinance.pro/:splat 301!
 # Redirect HTTP to HTTPS
 http://umfinance.pro/* https://umfinance.pro/:splat 301!
 
-# Handle React Router (SPA)
-/*    /index.html   200
-
-# Custom redirects for specific pages
-/quiz    /index.html   200
-/results    /index.html   200
-/contact    /index.html   200
-/success    /index.html   200
-
 # Security headers
 /*
   X-Frame-Options: DENY

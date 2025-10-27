@@ -70,7 +70,9 @@ export default function CookiesPage() {
                     <strong>{t.cookiesPage.lastUpdate}</strong>
                   </p>
                   <p className="policy-text">
-                    {t.cookiesPage.intro}
+                    {t.cookiesPage.intro.split('https://umfinance.pro')[0]}
+                    <a href="https://umfinance.pro" target="_blank" rel="noopener noreferrer" className="policy-link">https://umfinance.pro</a>
+                    {t.cookiesPage.intro.split('https://umfinance.pro')[1]}
                   </p>
                 </div>
                 

@@ -1,8 +1,8 @@
 {
   "/_not-found/page": "/_not-found",
-  "/cookies/page": "/cookies",
-  "/privacy/page": "/privacy",
-  "/result/page": "/result",
   "/contact/page": "/contact",
-  "/page": "/"
+  "/cookies/page": "/cookies",
+  "/page": "/",
+  "/privacy/page": "/privacy",
+  "/result/page": "/result"
 }

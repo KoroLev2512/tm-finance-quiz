@@ -2381,6 +2381,16 @@ body {
     margin: 0;
 }
 
+.policy-link {
+    color: #3D568F;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.policy-link:hover {
+    color: #2a4a7a;
+}
+
 /* Mobile styles for policy pages */
 @media (max-width: 48rem) {
     .policy-section {

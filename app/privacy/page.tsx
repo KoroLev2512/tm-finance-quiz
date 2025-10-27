@@ -74,7 +74,7 @@ export default function PrivacyPage() {
                     1.1. The Operator&apos;s most important goal and condition for carrying out its activities is respect for the rights and freedoms of individuals when processing their personal data, including the protection of the rights to privacy, personal and family secrets.
                   </p>
                   <p className="policy-text">
-                    1.2. This Operator&apos;s policy regarding the processing of personal data (hereinafter, the Policy) applies to all information that the Operator may receive about visitors to the website https://umfinance.pro.
+                    1.2. This Operator&apos;s policy regarding the processing of personal data (hereinafter, the Policy) applies to all information that the Operator may receive about visitors to the website <a href="https://umfinance.pro" target="_blank" rel="noopener noreferrer" className="policy-link">https://umfinance.pro</a>.
                   </p>
                 </div>
 
@@ -87,7 +87,7 @@ export default function PrivacyPage() {
                     2.2. Blocking of personal data: temporary cessation of processing of personal data (except when processing is necessary to clarify personal data).
                   </p>
                   <p className="policy-text">
-                    2.3. Website: a set of graphical and informational materials, as well as computer programs and databases that ensure their availability on the Internet at the network address https://umfinance.pro.
+                    2.3. Website: a set of graphical and informational materials, as well as computer programs and databases that ensure their availability on the Internet at the network address <a href="https://umfinance.pro" target="_blank" rel="noopener noreferrer" className="policy-link">https://umfinance.pro</a>.
                   </p>
                   <p className="policy-text">
                     2.4. Personal data information system: a set of personal data contained in databases and the information technologies and technical means that ensure their processing.
@@ -102,13 +102,13 @@ export default function PrivacyPage() {
                     2.7. Operator: a state body, municipal body, legal entity or individual, independently or jointly with others, organizing and/or carrying out the processing of personal data, as well as determining the purposes of processing personal data, the composition of personal data to be processed, and the actions (operations) performed with personal data.
                   </p>
                   <p className="policy-text">
-                    2.8. Personal data: any information relating directly or indirectly to a specific or identifiable User of the website https://umfinance.pro.
+                    2.8. Personal data: any information relating directly or indirectly to a specific or identifiable User of the website <a href="https://umfinance.pro" target="_blank" rel="noopener noreferrer" className="policy-link">https://umfinance.pro</a>.
                   </p>
                   <p className="policy-text">
                     2.9. Personal data permitted by the data subject for dissemination: personal data to which an unlimited number of persons have been granted access by the data subject by giving consent to the processing of personal data permitted by the data subject for dissemination in the manner prescribed by law (hereinafter, personal data permitted for dissemination).
                   </p>
                   <p className="policy-text">
-                    2.10. User: any visitor to the website https://umfinance.pro.
+                    2.10. User: any visitor to the website <a href="https://umfinance.pro" target="_blank" rel="noopener noreferrer" className="policy-link">https://umfinance.pro</a>.
                   </p>
                   <p className="policy-text">
                     2.11. Provision of personal data: actions aimed at disclosing personal data to a specific person or a specific circle of persons.
@@ -346,7 +346,7 @@ export default function PrivacyPage() {
                     12.2. This document will reflect any changes to the Operator&apos;s personal data processing policy. The Policy is valid indefinitely until replaced by a new version.
                   </p>
                   <p className="policy-text">
-                    12.3. The current version of the Policy is freely available on the Internet at https://umfinance.pro/privacy/.
+                    12.3. The current version of the Policy is freely available on the Internet at <a href="https://umfinance.pro/privacy/" target="_blank" rel="noopener noreferrer" className="policy-link">https://umfinance.pro/privacy/</a>.
                   </p>
                 </div>
               </div>
