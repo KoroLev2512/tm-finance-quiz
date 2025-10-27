@@ -58,11 +58,11 @@ export default function PrivacyPage() {
               <div className="back-button-container">
                 <Link href="/" className="back-button">
                   <ArrowBackIcon />
-                  <span>Back</span>
+                  <span>{t.privacyPage.back}</span>
                 </Link>
               </div>
               
-              <h1 className="policy-title">Privacy Policy</h1>
+              <h1 className="policy-title">{t.privacyPage.title}</h1>
               
               <div className="policy-content-wrapper">
                 <div className="policy-section-item">
